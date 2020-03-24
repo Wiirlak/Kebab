@@ -4,12 +4,18 @@ public class KebabCreator {
 
     public KebabCreator() {
     }
-    public Kebab classic(){
+
+    public Kebab sto(){
         Kebab out = new Kebab();
-        out.addIngredient(new Ingredient("Kebab",false,false));
         out.addIngredient(new Ingredient("Salade",true,true));
         out.addIngredient(new Ingredient("Tomate",true,true));
         out.addIngredient(new Ingredient("Oignon",true,true));
+        return out;
+    }
+
+    public Kebab classic(){
+        Kebab out = sto();
+        out.addIngredient(new Ingredient("Kebab",false,false));
         out.addSauce(new Sauce("Blanche"));
         return out;
     }
@@ -21,11 +27,8 @@ public class KebabCreator {
     }
 
     public Kebab terremer(){
-        Kebab out = new Kebab();
+        Kebab out = sto();
         out.addIngredient(new Ingredient("Bulot",false,true));
-        out.addIngredient(new Ingredient("Salade",true,true));
-        out.addIngredient(new Ingredient("Tomate",true,true));
-        out.addIngredient(new Ingredient("Oignon",true,true));
         out.addIngredient(new Ingredient("Galette",true,true));
         out.addSauce(new Sauce("Ketchup"));
         out.addSauce(new Sauce("Yaourt"));
@@ -41,23 +44,17 @@ public class KebabCreator {
     }
 
     public Kebab veggy(){
-        Kebab out = new Kebab();
-        out.addIngredient(new Ingredient("Salade",true,true));
-        out.addIngredient(new Ingredient("Tomate",true,true));
-        out.addIngredient(new Ingredient("Oignon",true,true));
+        Kebab out = sto();
         out.addIngredient(new Ingredient("Galette",true,true));
         out.addSauce(new Sauce("Salade"));
         return out;
     }
 
     public Kebab pescetruc(){
-        Kebab out = new Kebab();
+        Kebab out = sto();
         out.addIngredient(new Ingredient("Baleine",true,true));
-        out.addIngredient(new Ingredient("Salade",true,true));
-        out.addIngredient(new Ingredient("Tomate",true,true));
-        out.addIngredient(new Ingredient("Oignon",true,true));
         out.addIngredient(new Ingredient("Galette",true,true));
-        out.addSauce(new Sauce("Salade"));
+        out.addSauce(new Sauce("Mer"));
         return out;
     }
 
