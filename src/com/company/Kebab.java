@@ -1,76 +1,51 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Kebab {
-    private boolean salade;
-    private boolean tomate;
-    private boolean oignon;
-    private boolean viande;
-    private boolean galette;
+    private ArrayList<Ingredient> ingredients;
 
     public Kebab() {
+        ingredients = new ArrayList<>();
         defaultKebab();
     }
 
+    public Kebab(ArrayList<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     public boolean isVegetarian(){
-        return !viande;
+        for (Ingredient item : ingredients) {
+            if(!item.vegetarian) return false;
+        }
+        return true;
+    }
+
+    public boolean isPescetarian(){
+        for (Ingredient item : ingredients) {
+            if(!item.pescetarian) return false;
+        }
+        return true;
+    }
+
+    public void addIngredient(Ingredient i){
+        ingredients.add(i);
     }
 
     public void defaultKebab(){
-        salade = true;
-        tomate = true;
-        oignon = true;
-        viande = true;
-        galette = false;
-    }
-
-    public boolean asSalade() {
-        return salade;
-    }
-
-    public void setSalade(boolean salade) {
-        this.salade = salade;
-    }
-
-    public boolean asTomate() {
-        return tomate;
-    }
-
-    public void setTomate(boolean tomate) {
-        this.tomate = tomate;
-    }
-
-    public boolean asOignon() {
-        return oignon;
-    }
-
-    public void setOignon(boolean oignon) {
-        this.oignon = oignon;
-    }
-
-    public boolean asViande() {
-        return viande;
-    }
-
-    public void setViande(boolean viande) {
-        this.viande = viande;
-    }
-
-    public boolean isGalette() {
-        return galette;
-    }
-
-    public void setGalette(boolean galette) {
-        this.galette = galette;
+        ingredients.add(new Ingredient("Kebab",false,false));
+        ingredients.add(new Ingredient("Salade",true,true));
+        ingredients.add(new Ingredient("Tomate",true,true));
+        ingredients.add(new Ingredient("Oignon",true,true));
+        ingredients.add(new Ingredient("Galette",true,true));
     }
 
     @Override
     public String toString() {
-        return "Kebab{" +
-                "salade=" + salade +
-                ", tomate=" + tomate +
-                ", oignon=" + oignon +
-                ", viande=" + viande +
-                ", galette=" + galette +
-                '}';
+        StringBuilder out = new StringBuilder("Kebab {\n");
+        for(Ingredient i : ingredients)
+            out.append("\t" + i.name + "\n");
+        out.append('}');
+        return out.toString();
     }
 }
