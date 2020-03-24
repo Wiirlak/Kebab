@@ -9,11 +9,11 @@ public class Kebab {
     public Kebab() {
         ingredients = new ArrayList<>();
         sauces = new ArrayList<>();
-        defaultKebab();
     }
 
-    public Kebab(ArrayList<Ingredient> ingredients) {
+    public Kebab(ArrayList<Ingredient> ingredients, ArrayList<Sauce> sauces) {
         this.ingredients = ingredients;
+        this.sauces = sauces;
     }
 
     public boolean isVegetarian(){
@@ -50,22 +50,15 @@ public class Kebab {
     }
 
     public Kebab removeIngredient(String name){
-        for(Ingredient i: ingredients)
-            if(i.name.equals(name)) ingredients.remove(i);
+        for (int i = ingredients.size() - 1 ; i >= 0 ; i--) {
+            if(ingredients.get(i).name.equals(name))
+                ingredients.remove(ingredients.get(i));
+        }
         return this;
     }
 
     public void addSauce(Sauce i){
         sauces.add(i);
-    }
-
-    public void defaultKebab(){
-        ingredients.add(new Ingredient("Kebab",false,false));
-        ingredients.add(new Ingredient("Salade",true,true));
-        ingredients.add(new Ingredient("Tomate",true,true));
-        ingredients.add(new Ingredient("Oignon",true,true));
-        ingredients.add(new Ingredient("Galette",true,true));
-        sauces.add(new Sauce("Blanche"));
     }
 
     @Override

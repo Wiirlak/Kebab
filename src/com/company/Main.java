@@ -1,29 +1,27 @@
 package com.company;
 
-import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-        Kebab client1 = new Kebab();
-        client1.sansOignon();
-        client1.supplementFromage();
-        client1.supplementFromage();
-        client1.supplementFromage();
-        System.out.println(client1.toString());
-        System.out.println("Vegetarien ? " + client1.isVegetarian());
+        KebabCreator kc = new KebabCreator();
 
-        ArrayList<Ingredient> i = new ArrayList<>();
-        ArrayList<Sauce> j = new ArrayList<>();
-        i.add(new Ingredient("bulot",false,true));
-        i.add(new Ingredient("Salade",true,true));
-        i.add(new Ingredient("Tomate",true,true));
-        i.add(new Ingredient("Oignon",true,true));
-        i.add(new Ingredient("Galette",true,true));
-        j.add(new Sauce("Blanche"));
-        Kebab client2 = new Kebab(i);
+        Kebab client1 = kc.classic();
+        System.out.println(client1.toString());
+
+        Kebab client2 = kc.veggy();
         System.out.println(client2.toString());
-        System.out.println("Pescetarien ? " + client2.isPescetarian());
+        System.out.println("Vegetarien ? " + client2.isVegetarian());
+
+        Kebab client3 = kc.pescetruc();
+        System.out.println(client3.toString());
+        System.out.println("Pescétarien ? " + client3.isPescetarian());
+
+        Kebab client4 = kc.cheesy();
+        System.out.println(client4.toString());
+
+        Kebab client5 = kc.haleineFraiche();
+        System.out.println(client5.toString());
     }
 
 }
