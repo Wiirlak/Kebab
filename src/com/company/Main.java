@@ -6,6 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
         Kebab client1 = new Kebab();
+        client1.sansOignon();
+        client1.supplementFromage();
+        client1.supplementFromage();
+        client1.supplementFromage();
         System.out.println(client1.toString());
         System.out.println("Vegetarien ? " + client1.isVegetarian());
 

@@ -30,8 +30,29 @@ public class Kebab {
         return true;
     }
 
+    public Kebab sansOignon(){
+        return removeIngredient("Oignon");
+    }
+
+    public Kebab supplementFromage(){
+        int nbFromage = 0;
+        for(Ingredient i: ingredients)
+            if(i.fromage) nbFromage++;
+        if(nbFromage == 0) nbFromage = 1;
+        for (int i = 0; i < nbFromage; i++) {
+            ingredients.add(new Ingredient("fromage",true,true,true));
+        }
+        return this;
+    }
+
     public void addIngredient(Ingredient i){
         ingredients.add(i);
+    }
+
+    public Kebab removeIngredient(String name){
+        for(Ingredient i: ingredients)
+            if(i.name.equals(name)) ingredients.remove(i);
+        return this;
     }
 
     public void addSauce(Sauce i){
