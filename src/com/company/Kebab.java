@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class Kebab {
     private ArrayList<Ingredient> ingredients;
+    private ArrayList<Sauce> sauces;
 
     public Kebab() {
         ingredients = new ArrayList<>();
+        sauces = new ArrayList<>();
         defaultKebab();
     }
 
@@ -32,12 +34,17 @@ public class Kebab {
         ingredients.add(i);
     }
 
+    public void addSauce(Sauce i){
+        sauces.add(i);
+    }
+
     public void defaultKebab(){
         ingredients.add(new Ingredient("Kebab",false,false));
         ingredients.add(new Ingredient("Salade",true,true));
         ingredients.add(new Ingredient("Tomate",true,true));
         ingredients.add(new Ingredient("Oignon",true,true));
         ingredients.add(new Ingredient("Galette",true,true));
+        sauces.add(new Sauce("Blanche"));
     }
 
     @Override
